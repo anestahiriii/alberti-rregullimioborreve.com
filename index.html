@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Alberti - Rregullimi i Oborreve</title>
+ <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="images/LOGO.png" />
+</head>
+<body>
+  <header>
+    <!-- 🔸 Butonat e vendosur brenda header që të mos lëvizin -->
+    <div class="top-buttons">
+      <button id="toggleTheme" class="theme-toggle" title="Ndrysho temën">🌙</button>
+      <button class="contact-btn" id="openModalBtn">Na Kontaktoni</button>
+    </div>
+
+    <h1>Alberti - Rregullimi i Oborreve</h1>
+    <p>Transformoni hapësirat tuaja të jashtme me punime cilësore dhe dizajn modern.</p>
+    <img src="images/logo.png" alt="Logo" class="logo" />
+  </header>
+
+
+  <section class="gallery">
+    <h2 class="gallery-title">Fotografi Te Oborreve Te Punuara Nga Ne</h2>
+    <div class="gallery-grid">
+      <div class="image-card">
+        <img src="images/IMG_3535.JPG" alt="Oborr i rregulluar" />
+      </div>
+      <div class="image-card">
+        <img src="images/IMG_E3504.JPG" alt="Punim me pllaka në oborr" />
+      </div>
+      <div class="image-card">
+        <img src="images/IMG_E3506.JPG" alt="Punim tjetër dekorativ" />
+      </div>
+    </div>
+  </section>
+
+  <section class="projects">
+    <h2>Projektet Tona</h2>
+    <p>
+      Ne kemi realizuar mbi 150 projekte në të gjithë Kosovën, për klientë privatë dhe biznese...
+    </p>
+    <ul>
+      <li>Oborre familjare me dizajn unik</li>
+      <li>Hapësira të jashtme për lokale e kafene</li>
+      <li>Rruga private me pllaka të punuara me dorë</li>
+    </ul>
+  </section>
+
+  <section class="testimonials">
+    <h2>Çfarë thonë klientët tanë</h2>
+    <blockquote class="testimonial">
+      “Puna e bërë nga Alberti është fantastike. Oborri im tani duket si një vend për pushim në natyrë...”
+    </blockquote>
+    <blockquote class="testimonial">
+      “Profesionalizëm, korrektësi dhe dizajn i mrekullueshëm. E rekomandoj pa hezitim.”
+    </blockquote>
+  </section>
+
+  <section class="about">
+    <h2>Pse të na zgjidhni neve?</h2>
+    <div class="reasons">
+      <div class="reason-card">
+        <h3>Përvojë shumëvjeçare</h3>
+        <p>Me vite përvojë në dizajn dhe rregullim të oborreve...</p>
+      </div>
+      <div class="reason-card">
+        <h3>Dizajn modern & kreativ</h3>
+        <p>Çdo projekt është unik – i dizajnuar për të reflektuar stilin dhe nevojat tuaja.</p>
+      </div>
+      <div class="reason-card">
+        <h3>Cilësi e garantuar</h3>
+        <p>Përdorim vetëm materiale të cilësisë së lartë...</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="services">
+    <h2>Shërbimet tona</h2>
+    <ul>
+      <li>Vendosje e pllakave dekorative në oborr</li>
+      <li>Rregullim i sipërfaqeve me beton</li>
+      <li>Konsultim dhe dizajn i personalizuar</li>
+    </ul>
+  </section>
+
+  <section class="contact">
+    <h2>Na Kontaktoni</h2>
+    <p>
+      Për më shumë informata ose për të rezervuar një vizitë në vendin tuaj, na kontaktoni:
+    </p>
+    <div class="contact-details">
+      <p><strong>📞 Telefoni:</strong> <a href="tel:+38344359479">+383 44 359 479</a></p>
+      <p><strong>📧 Email:</strong> <a href="mailto:erlindkosumi2020@gmail.com">erlindkosumi2020@gmail.com</a></p>
+    </div>
+  </section>
+
+  <!-- 🔸 Modal -->
+  <div id="contactModal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="closeModalBtn">&times;</span>
+      <h2>Na Kontaktoni</h2>
+      <form action="https://formsubmit.co/erlindkosumi2020@gmail.com" method="POST">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <input type="text" name="Emri dhe Mbiemri" placeholder="Emri dhe Mbiemri" required>
+        <input type="tel" name="Numri i Telefonit" placeholder="Numri i telefonit" required>
+        <input type="text" name="Vendi" placeholder="Vendi" required>
+        <button type="submit">Dërgo</button>
+      </form>
+    </div>
+  </div>
+
+<div class="social-buttons">
+   <a href="https://www.instagram.com/kosumim/" target="_blank" class="btn social-btn instagram">📸 Instagram</a>
+  <a href="https://www.tiktok.com/@albertii13?lang=en" target="_blank" class="btn social-btn tiktok">🎵 TikTok</a>
+</div>
+
+<footer>
+  <p>© 2025 Alberti - Të gjitha të drejtat e rezervuara.</p>
+</footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

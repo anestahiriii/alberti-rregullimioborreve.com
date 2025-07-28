@@ -1,0 +1,853 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f3f4f6;
+  color: #333;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 40px;
+  position: relative; /* E nevojshme për .top-buttons absolute */
+}
+
+header h1 {
+  font-size: 2.5rem;
+  color: #1f2937;
+}
+
+header p {
+  color: #4b5563;
+  margin-top: 10px;
+  font-size: 1.1rem;
+}
+
+.logo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+/* 🔸 Butonat lart në të djathtë */
+.top-buttons {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+.theme-toggle,
+.contact-btn {
+  position: relative;
+}
+
+.theme-toggle {
+  background-color: transparent;
+  color: #111827;
+  border: none;
+  font-size: 1.6rem;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.theme-toggle:hover {
+  color: #10b981;
+}
+
+.contact-btn {
+  background-color: #10b981;
+  border: none;
+  color: white;
+  padding: 10px 16px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(16, 185, 129, 0.5);
+  transition: background-color 0.3s;
+}
+
+.contact-btn:hover {
+  background-color: #059669;
+}
+
+.gallery-title {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #1f2937;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  padding: 0 10px;
+  margin-bottom: 40px;
+}
+
+.image-card {
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.4s, box-shadow 0.4s;
+}
+
+.image-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.image-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.image-card img:hover {
+  transform: scale(1.05);
+}
+
+.about, .services, .contact {
+  margin-bottom: 40px;
+}
+
+.about h2, .services h2, .contact h2 {
+  font-size: 1.8rem;
+  color: #1f2937;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.about p {
+  color: #374151;
+  margin-bottom: 15px;
+  line-height: 1.8;
+  text-align: justify;
+}
+
+.services {
+  background-color: #f9fafb;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.services ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.services li {
+  background-color: #e5e7eb;
+  margin-bottom: 10px;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-size: 1.05rem;
+  color: #111827;
+  transition: background-color 0.3s;
+}
+
+.services li:hover {
+  background-color:  #10b981;
+}
+
+.contact {
+  background: linear-gradient(to right, #10b981, #059669);
+  color: white;
+  padding: 60px 30px;
+  border-radius: 25px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  max-width: 1000px;
+  margin: 60px auto;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact h2 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.contact p {
+  font-size: 1.1rem;
+  max-width: 800px;
+  margin: 0 auto 25px auto;
+  line-height: 1.7;
+  color: #f9fafb;
+}
+
+.contact-details {
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 25px 30px;
+  border-radius: 15px;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  margin-top: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.contact-details p {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.contact-details a {
+  color: #ffffff;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.contact-details a:hover {
+  color: #d1fae5;
+  text-decoration: underline;
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+  background-color: #f9fafb;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 400px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 16px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+}
+
+.modal-content input,
+.modal-content button {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+.modal-content button {
+  background-color: #10b981;
+  color: white;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+.modal-content button:hover {
+  background-color: #059669;
+}
+
+/* Testimonials */
+.testimonials {
+  margin-bottom: 40px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.testimonial {
+  background-color: #e5e7eb;
+  border-left: 5px solid #10b981;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  font-style: italic;
+  color: #1f2937;
+}
+
+.about-us, .projects {
+  margin-bottom: 40px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.projects {
+  background-color: #f9fafb;
+  padding: 40px 20px;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  margin: 60px auto;
+  max-width: 1000px;
+  text-align: center;
+}
+
+.projects h2 {
+  font-size: 2rem;
+  color: #10b981;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.projects p {
+  font-size: 1.1rem;
+  color: #374151;
+  max-width: 800px;
+  margin: 0 auto 30px auto;
+  line-height: 1.7;
+}
+
+.projects ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 15px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.projects li {
+  background-color: #e5e7eb;
+  padding: 20px;
+  border-radius: 12px;
+  font-size: 1.05rem;
+  color: #1f2937;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.projects li:hover {
+  background-color: #d1d5db;
+  transform: translateY(-5px);
+}
+
+/* Arsye për të na zgjedhur */
+.reasons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.reason-card {
+  background-color: #f9fafb;
+  border-radius: 16px;
+  padding: 25px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.reason-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+.reason-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #10b981;
+}
+
+.reason-card p {
+  color: #374151;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Social Media */
+.social-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin: 40px auto;
+}
+
+.social-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.social-btn::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(255,255,255,0.1);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.social-btn:hover::before {
+  opacity: 1;
+}
+
+.social-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 20px rgba(0,0,0,0.2);
+}
+
+.social-btn.tiktok {
+  background: linear-gradient(45deg, #000000, #ff0050, #00f2ea);
+  background-size: 200% 200%;
+  animation: gradientShift 5s ease infinite;
+}
+
+.social-btn.instagram {
+  background: linear-gradient(45deg, #feda75, #d62976, #962fbf, #4f5bd5);
+  background-size: 200% 200%;
+  animation: gradientShift 5s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px 10px;
+  background-color: #f2f2f2;
+  font-size: 0.9rem;
+  color: #444;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark Mode */
+body.dark-mode {
+  background-color: #1f2937;
+  color: #f9fafb;
+}
+
+body.dark-mode header,
+body.dark-mode .about,
+body.dark-mode .services,
+body.dark-mode .contact {
+  background-color: #374151;
+  color: #f9fafb;
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode .gallery-title {
+  color: #ffffff;
+}
+
+body.dark-mode p,
+body.dark-mode li,
+body.dark-mode span {
+  color: #e5e7eb;
+}
+
+body.dark-mode .services li {
+  background-color: #4b5563;
+  color: #e5e7eb;
+}
+
+body.dark-mode .services li:hover {
+  background-color: #6b7280;
+}
+
+body.dark-mode .contact-details {
+  background-color: #4b5563;
+  color: #e5e7eb;
+}
+
+body.dark-mode .contact-details a {
+  color: #6ee7b7;
+}
+
+body.dark-mode .theme-toggle {
+  color: #f9fafb;
+}
+
+body.dark-mode .testimonial {
+  background-color: #4b5563;
+  border-left-color: #10f57b;
+  color: #e5e7eb;
+}
+
+body.dark-mode .projects {
+  background-color: #374151;
+  color: #f9fafb;
+}
+
+body.dark-mode .projects h2 {
+  color: #6ee7b7;
+}
+
+body.dark-mode .projects p {
+  color: #d1d5db;
+}
+
+body.dark-mode .projects li {
+  background-color: #4b5563;
+  color: #e5e7eb;
+}
+
+body.dark-mode footer {
+  background-color: #4b5563;
+  color: #f2f2f2;
+}
+
+body.dark-mode .reason-card {
+  background-color: #4b5563;
+  color: #e5e7eb;
+}
+
+body.dark-mode .reason-card h3 {
+  color: #6ee7b7;
+}
+
+body.dark-mode .modal-content {
+  background-color: #374151;
+  color: #f9fafb;
+}
+
+body.dark-mode .modal-content input,
+body.dark-mode .modal-content button {
+  background-color: #4b5563;
+  color: #f9fafb;
+  border: 1px solid #6b7280;
+}
+
+/* Responsive adjustments */
+/* MOBILE: max-width 600px */
+@media (max-width: 600px) {
+  .top-buttons {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 6px;
+    top: 10px;
+    right: 10px;
+  }
+
+  .theme-toggle,
+  .contact-btn {
+    font-size: 0.85rem;
+    padding: 6px 10px;
+  }
+
+  .logo {
+    width: 60px;
+    height: 60px;
+    top: 10px;
+    left: 10px;
+  }
+
+  header {
+    padding-top: 80px; /* hapësirë për butonat */
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+    margin-top: 10px;
+  }
+
+  p {
+    font-size: 1rem;
+    margin-top: 5px;
+  }
+}
+
+/* TABLET: min-width 601px dhe max-width 900px */
+@media (min-width: 601px) and (max-width: 900px) {
+  .top-buttons {
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 10px;
+    top: 15px;
+    right: 15px;
+  }
+
+  .theme-toggle,
+  .contact-btn {
+    font-size: 1rem;
+    padding: 8px 14px;
+  }
+
+  .logo {
+    width: 70px;
+    height: 70px;
+    top: 15px;
+    left: 15px;
+  }
+
+  header {
+    padding-top: 70px; /* pak më pak se në mobile */
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 2rem;
+    margin-top: 15px;
+  }
+
+  p {
+    font-size: 1.1rem;
+    margin-top: 8px;
+  }
+}
+.contact-button {
+  background: linear-gradient(135deg, #ff7e5f, #feb47b);
+  color: white;
+  font-weight: 700;
+  padding: 14px 28px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 30px;
+  box-shadow: 0 8px 15px rgba(255, 126, 95, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-block;
+  text-align: center;
+  user-select: none;
+}
+
+.contact-button:hover {
+  background: linear-gradient(135deg, #feb47b, #ff7e5f);
+  box-shadow: 0 12px 20px rgba(255, 126, 95, 0.5);
+  transform: scale(1.05);
+}
+@media (max-width: 900px) {
+  .contact-button {
+    padding: 18px 36px;
+    font-size: 1.4rem;
+    border-radius: 40px;
+  }
+}
+
+/* Optional: efekt fade-in kur hapet */
+.contact-button.show {
+  animation: fadeInScale 0.5s ease forwards;
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+@keyframes fadeInScale {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* MOBILE: rrisim pak butonin e dark mode */
+@media (max-width: 600px) {
+  .theme-toggle {
+    font-size: 1.1rem; /* rritet pak nga 0.85rem */
+    padding: 8px 14px; /* pak më shumë padding për dukshmëri */
+  }
+}
+
+/* TABLET: rrisim pak butonin e dark mode */
+@media (min-width: 601px) and (max-width: 900px) {
+  .theme-toggle {
+    font-size: 1.2rem; /* rritje e lehtë */
+    padding: 9px 16px;
+  }
+}
+/* Butoni "Na Kontaktoni" i ri dhe elegant */
+.contact-btn {
+  background: linear-gradient(135deg, #0f766e, #10b981);
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 40px;
+  box-shadow: 0 10px 20px rgba(16, 185, 129, 0.4);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-btn::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.15);
+  opacity: 0;
+}
+
+
+.modal-content {
+  background: linear-gradient(135deg, #ffffff, #f0fdf4);
+  border-radius: 20px;
+  padding: 30px 25px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  position: relative;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.modal-content h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #065f46;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.modal-content input {
+  padding: 14px 18px;
+  border-radius: 12px;
+  border: 1px solid #d1d5db;
+  font-size: 1rem;
+  margin-top: 12px;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+.modal-content input:focus {
+  border-color: #10b981;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.3);
+}
+
+.modal-content button {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  font-weight: bold;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 12px;
+  margin-top: 20px;
+  font-size: 1.1rem;
+  box-shadow: 0 10px 20px rgba(16, 185, 129, 0.4);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.modal-content button:hover {
+  background: linear-gradient(135deg, #059669, #10b981);
+  transform: scale(1.05);
+}
+body.dark-mode input {
+  background-color: #1f2937;
+  color: #ffffff;
+  border: 1px solid #4b5563;
+}
+
+body.dark-mode .modal-content {
+  background: linear-gradient(135deg, #1f2937, #111827);
+  color: #ffffff;
+}
+
+body.dark-mode .modal-content h2 {
+  color: #10b981;
+}
+/* Butoni animuar dark/light mode */
+.theme-toggle {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1.6rem;
+  position: relative;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 0 0 transparent;
+  animation: popIn 0.4s ease;
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.theme-toggle:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.theme-toggle .icon {
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  position: absolute;
+}
+
+.theme-toggle .sun {
+  opacity: 1;
+  transform: rotate(0deg);
+}
+
+.theme-toggle .moon {
+  opacity: 0;
+  transform: rotate(-90deg);
+}
+
+body.dark-mode .theme-toggle .sun {
+  opacity: 0;
+  transform: rotate(90deg);
+}
+
+body.dark-mode .theme-toggle .moon {
+  opacity: 1;
+  transform: rotate(0deg);
+}
